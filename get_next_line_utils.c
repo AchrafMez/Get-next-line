@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amezioun <amezioun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:03:15 by amezioun          #+#    #+#             */
-/*   Updated: 2024/02/09 21:40:02 by amezioun         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:12:37 by amezioun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-int ft_strlen(const char *s)
-{
-    int i = 0;
-    if(!s)
-        return 0;
-    while (s[i])
-        i++;
-    return i;
-}
+// int ft_strlen(const char *s)
+// {
+//     int i = 0;
+//     if(!s)
+//         return 0;
+//     while (s[i])
+//         i++;
+//     return i;
+// }
 
 // char *ft_strjoin(char const *s1, char const *s2)
 // {
@@ -102,29 +102,29 @@ int ft_strlen(const char *s)
 // }
 
 
-int ft_check(char *s, int fd)
-{
-    int i = 0;
-    while (s[i] != '\0')
-    {
-        if(s[i] == '\n')
-            return i;
-        i++;
-    }
-    return i;   
-}
+// int ft_check(char *s, int fd)
+// {
+//     int i = 0;
+//     while (s[i] != '\0')
+//     {
+//         if(s[i] == '\n')
+//             return i;
+//         i++;
+//     }
+//     return i;   
+// }
 
-int main()
-{
-    int fd = open("file.txt", O_RDONLY);
-    if(fd == -1)
-        printf("fd error");
-    char *buffer;
-    read(fd, buffer, 10);
-    printf("%d\n", ft_check(buffer, fd));
-    printf("%d\n", ft_check(buffer, fd));
-    printf("%d\n", ft_check(buffer, fd));
-    printf("%d\n", ft_check(buffer, fd));
-    //get_next_line(fd);
-    // get_next_line(fd);
-}
+// int main()
+// {
+//     int fd = open("file.txt", O_RDONLY);
+//     if(fd == -1)
+//         printf("fd error");
+//     char *buffer;
+//     read(fd, buffer, 10);
+//     printf("%d\n", ft_check(buffer, fd));
+//     printf("%d\n", ft_check(buffer, fd));
+//     printf("%d\n", ft_check(buffer, fd));
+//     printf("%d\n", ft_check(buffer, fd));
+//     //get_next_line(fd);
+//     // get_next_line(fd);
+// }
