@@ -15,7 +15,7 @@
 
 
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE 1
+#define BUFFER_SIZE 99999
 #endif
 
 #include <unistd.h>
@@ -24,14 +24,12 @@
 #include <fcntl.h>
 #include <string.h>
 
-
-char *ft_read(int fd, char *chi_7aja, char *buffer);
 char* get_next_line(int fd);
 int ft_strlen(const char* s);
 char* ft_strdup(const char* s);
 char *ft_strjoin(char *s1, char *s2);
-int contains_nl(char *chi_7aja);
-char* copy_until_nl(char* chi_7aja);
+int contains_nl(const char* s);
+char* copy_until_nl(char* in);
 char* copy_after_nl(char* in);
 
 #endif

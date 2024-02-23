@@ -51,42 +51,43 @@ char *ft_strjoin(char *s1, char *s2)
     return result;
 }
 
-int contains_nl(char* chi_7aja) {
+int contains_nl(const char* s) {
     int i = 0;
 
-    if(!chi_7aja)
+    if(!s)
         return -1;
-    while (chi_7aja[i] && chi_7aja[i] != '\0') {
-        if (chi_7aja[i] == '\n')
+    while (s[i]) {
+        if (s[i] == '\n')
             return 1;
         i++;
     }
     return 0;
 }
 
-char* copy_until_nl(char* chi_7aja) {
+char* copy_until_nl(char* in) {
     char *cunl;
     int i = 0;
-    if(!chi_7aja[0])
+    if(!in)
         return NULL;
-    while (chi_7aja[i] && chi_7aja[i] != '\n')
-        i++;
-    if(chi_7aja[i] == '\n')
-        i += 1;
-    cunl = malloc(i + 1);
-    if(!cunl)
-        return 0;
-    i = 0;
-    while (chi_7aja[i] && chi_7aja[i] != '\n')
+    while (in[i] && in[i] != '\n')
     {
-        cunl[i] = chi_7aja[i];
         i++;
     }
-    if(chi_7aja && chi_7aja[i] == '\n' )
-        cunl[i] = '\n';
+    cunl = malloc(i + 2);
+    if(!cunl)
+        return NULL;
+    i = 0;
+    while (in[i] && in[i] != '\n')
+    {
+        cunl[i] = in[i];
+        i++;
+    }
+    cunl[i] = '\n';
     cunl[i + 1] = '\0';
-    // free(chi_7aja);
+    // free(in);
     return cunl;
+    
+    
 }
 
 char* copy_after_nl(char* in) {
@@ -96,7 +97,7 @@ char* copy_after_nl(char* in) {
 
     if(!in)
         return NULL;
-    while (in[i] && in[i] != '\0')
+    while (in[i])
         i++;
     while (in[j] && in[j] != '\n')
         j++;
@@ -112,6 +113,5 @@ char* copy_after_nl(char* in) {
         j++;
     }
     anl[a] = '\0';
-    free(in);
     return anl;
 }
