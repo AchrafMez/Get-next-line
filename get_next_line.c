@@ -39,8 +39,8 @@ char* get_next_line(int fd) {
     if(!chi_7aja)
         return NULL;
     line = copy_until_nl(chi_7aja);
-    free(chi_7aja);
-    chi_7aja = NULL;
+    // free(chi_7aja);
+    // chi_7aja = NULL;
     chi_7aja = copy_after_nl(chi_7aja);
     return line;
 }
@@ -52,11 +52,23 @@ int main() {
     // printf("%d\n", fd);This is line 1.
     if(fd == -1)
         printf("error");
+    printf("1%s", get_next_line(fd));
+    printf("2%s", get_next_line(fd));
+    printf("3%s", get_next_line(fd));
+    printf("4%s", get_next_line(fd));
+    printf("5%s", get_next_line(fd));
+    printf("6%s", get_next_line(fd));
+    printf("7%s", get_next_line(fd));
+    printf("8%s", get_next_line(fd));
+    printf("9%s", get_next_line(fd));
+    printf("10%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
+    printf("16%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
+
     return 0;
 }

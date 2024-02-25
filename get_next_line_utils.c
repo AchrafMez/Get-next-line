@@ -71,11 +71,11 @@ char* copy_until_nl(char* chi_7aja) {
         return NULL;
     while (chi_7aja[i] && chi_7aja[i] != '\n')
         i++;
-    if(chi_7aja[i] == '\n')
+    if(chi_7aja[i] && chi_7aja[i] == '\n')
         i += 1;
     cunl = malloc(i + 1);
     if(!cunl)
-        return 0;
+        return NULL;
     i = 0;
     while (chi_7aja[i] && chi_7aja[i] != '\n')
     {
@@ -83,8 +83,8 @@ char* copy_until_nl(char* chi_7aja) {
         i++;
     }
     if(chi_7aja && chi_7aja[i] == '\n' )
-        cunl[i] = '\n';
-    cunl[i + 1] = '\0';
+        cunl[i++] = '\n';
+    cunl[i] = '\0';
     // free(chi_7aja);
     return cunl;
 }
@@ -96,22 +96,24 @@ char* copy_after_nl(char* in) {
 
     if(!in)
         return NULL;
-    while (in[i] && in[i] != '\0')
+    while (in[i] && in[i] != '\n')
         i++;
-    while (in[j] && in[j] != '\n')
-        j++;
-    j++;
-    anl = malloc((i - j) + 1);
+    if(!in[i])
+    {
+        free(in);
+        return NULL;
+    }
+    anl = malloc((strlen(in) - i) + 1);
+    i++;
     if(!anl)
         return NULL;
-    int a = 0;
-    while (in[j] != '\0')
+    while (in[i] != '\0')
     {
-        anl[a] = in[j];
-        a++;
+        anl[j] = in[i];
+        i++;
         j++;
     }
-    anl[a] = '\0';
-    free(in);
+    anl[j] = '\0';
+    // free(in);
     return anl;
 }
