@@ -28,11 +28,11 @@ char *ft_strjoin(char *s1, char *s2)
 {
     int i = 0;
     int j = 0;
-    char* result = NULL;
+    char* result ;
     if (!s1 && !s2)
         return NULL;
-    if (s1 == NULL)
-        s1 = ft_strdup("");
+    if (!s1 && s2)
+        return strdup(s2);
     result = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
     if(!result)
         return NULL;
@@ -48,6 +48,7 @@ char *ft_strjoin(char *s1, char *s2)
     }
     result[i + j] = 0;
     free(s1);
+    s1 = NULL;
     return result;
 }
 
@@ -85,7 +86,6 @@ char* copy_until_nl(char* chi_7aja) {
     if(chi_7aja && chi_7aja[i] == '\n' )
         cunl[i++] = '\n';
     cunl[i] = '\0';
-    // free(chi_7aja);
     return cunl;
 }
 
@@ -114,6 +114,6 @@ char* copy_after_nl(char* in) {
         j++;
     }
     anl[j] = '\0';
-    // free(in);
+    free(in);
     return anl;
 }
